@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfólio Maria Eduarda</title>
+  <meta name="description" content="Portfólio online de Maria Eduarda">
+  <!-- arquivo CSS principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS adicional para abas -->
+  <style>
+    .tab-panel {
+      display: none; /* todas escondidas */
+    }
+    .tab-panel.active {
+      display: block; /* apenas a ativa aparece */
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+  <!-- Header com brand e botão de trocar tema -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Portfólio Online</div>
+
+      <!-- Theme toggle: botão simples (preserva acessibilidade) -->
+      <div class="header-controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Mudar tema">🌓</button>
+      </div>
+
+      <!-- Barra lateral -->
+      <nav class="tabs" role="tablist" aria-label="Navegação do portfólio">
+        <button class="tab" role="tab" data-target="sobre" aria-selected="true">Sobre mim</button>
+        <button class="tab" role="tab" data-target="formacao" aria-selected="false">Formação</button>
+        <button class="tab" role="tab" data-target="portfolio" aria-selected="false">Portfólio</button>
+        <button class="tab" role="tab" data-target="contato" aria-selected="false">Contato</button>
+        <button id="hamb" class="hamb icon-btn" aria-label="Abrir menu">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo: cada seção é um painel (tab-panel). Só a .active aparece -->
+  <main class="container">
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section tab-panel active" role="tabpanel" aria-labelledby="sobre-tab">
+      <h1>Maria Eduarda Dresch</h1>
+      <div class="card about-grid">
+        <div>
+          <h2>Apresentação</h2>
+          <p>Meu nome é Maria Eduarda, sou estudante de Tecnologia em Banco de Dados na Uninter e apaixonada por tecnologia, especialmente por análise e visualização de dados. Tenho experiência com Power BI, DAX, Excel, SQL e também desenvolvimento web com HTML5, CSS3 e JavaScript.</p>
+          <p>Sou organizada, comunicativa e atenta aos detalhes — qualidades que ajudam a entregar soluções claras e bem estruturadas. Gosto de trabalhar em equipe, colaborar em ideias criativas e transformar dados em visualizações úteis e acessíveis.</p>
+          <h3>Hobbies</h3>
+          <ul>
+            <li>Ler livros</li>
+            <li>Ouvir música</li>
+            <li>Conhecer novos lugares</li>
+          </ul>
+        </div>
+
+        <aside class="card profile" aria-label="Informações de contato">
+          <img src="https://via.placeholder.com/220" alt="Foto de Maria Eduarda" class="avatar">
+          <p><strong>Email:</strong> <a href="mailto:dudamdresch@gmail.com">dudamdresch@gmail.com</a></p>
+          <p><strong>Localização:</strong> Brasil</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="formacao" class="section tab-panel" role="tabpanel" aria-labelledby="formacao-tab">
+      <h2>Formação</h2>
+      <div class="card">
+        <h3 style="font-weight: normal; font-size: 1rem;">Tecnologia em Banco de Dados - Uninter/2027</h3>
+        <h4 style="font-weight: normal; font-size: 1rem; margin-top: 0.5rem;">Língua Inglesa C1 - FR Educação / Em andamento</h4>
+        <ul style="list-style: none; padding-left: 0; margin-top: 0.8rem; line-height: 1.6;">
+          <li>Trilha: Análista de Dados - Escola DNC / Em andamento</li>
+          <li>Power BI / Agosto 2025</li>
+          <li>Power BI (DAX) / Setembro 2025</li>
+          <li>Análise de Dados com Excel - Escola DNC / Junho 2025</li>
+          <li>Análise de Dados com SQL - Escola DNC / Outubro 2025</li>
+          <li>Fundamentos do Python 1 - Uninter em parceria com Cisco Networking Academy / Abril 2025</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="section tab-panel" role="tabpanel" aria-labelledby="portfolio-tab">
+      <h2>Portfólio</h2>
+      <div class="cards-grid">
+        <article class="project card">
+          <h3>Gerador de Currículo Gratuito</h3>
+          <p>Desenvolvi uma landing page completa utilizando HTML, CSS e JavaScript, com foco em criar uma experiência visual moderna, clara e intuitiva. Também integrei a geração automática de currículo em PDF usando jsPDF, permitindo exportar o documento de forma prática e profissional.</p>
+          <p><a class="btn" href="https://mariaeduardadresch.github.io/Gere-seu-curriculo/" target="_blank" rel="noopener">Acessar landing page</a></p>
+        </article>
+        <article class="project card">
+          <h3>Dashboard</h3>
+          <p>Desenvolvi um dashboard de vendas no Power BI para análise de desempenho comercial. O painel inclui indicadores como receita total, número de compradores, ticket médio e tendências por período. Trabalhei na modelagem dos dados, medidas em DAX e nas visualizações interativas para facilitar a tomada de decisão.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section tab-panel" role="tabpanel" aria-labelledby="contato-tab">
+      <h2>Contato</h2>
+      <div class="card form-card">
+        <form id="contactForm" novalidate>
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome completo" required>
+          <div class="error" id="nomeError" aria-live="polite"></div>
+
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="usuario@dominio.com" required>
+          <div class="error" id="emailError" aria-live="polite"></div>
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+          <div class="error" id="mensagemError" aria-live="polite"></div>
+
+          <div class="form-row">
+            <button type="submit" class="btn">Enviar mensagem</button>
+            <div id="statusMsg" class="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Maria Eduarda — Portfólio — Fundamentos da Programação Web</small>
+    </div>
+  </footer>
+
+  <!-- <script src="script.js"></script> -->
+<script>
+const tabs = document.querySelectorAll(".tab");
+const panels = document.querySelectorAll(".tab-panel");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.setAttribute("aria-selected", "false"));
+    panels.forEach(p => p.classList.remove("active"));
+    tab.setAttribute("aria-selected", "true");
+    const target = document.getElementById(tab.dataset.target);
+    target.classList.add("active");
+  });
+});
+</script>
+
+  </script>
+</body>
+</html>

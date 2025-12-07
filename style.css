@@ -1,0 +1,254 @@
+/* style.css
+   Playful Gradient theme (equilibrado).
+   Variáveis e estilos principais para o portfólio single-page com sidebar fixa.
+*/
+
+/* -------------------------
+   Variáveis de tema
+   ------------------------- */
+:root{
+  --bg: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); /* fundo degradê suave */
+  --fg:#0b1220;
+  --muted:#5f6470;
+  --accent:#0ea5a4;
+  --card:rgba(255,255,255,0.85);
+  --radius:12px;
+  --container-w:1000px;
+  --sidebar-w:220px;
+}
+
+/* -------------------------
+   Reset + base
+   ------------------------- */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--container-w); margin:0 auto; padding:0 1rem}
+
+/* -------------------------
+   Sidebar (nav.tabs)
+   - cor forte aplicada com !important para evitar sobrescrita.
+   ------------------------- */
+nav.tabs{
+  position:fixed;
+  left:0;
+  top:0;
+  height:100vh;
+  width:var(--sidebar-w);
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  padding:1.5rem 0.75rem;
+  align-items:flex-start;
+  /* gradiente da sidebar (Playful) */
+  background: linear-gradient(135deg, #ffc8dd, #bde0fe) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 2px 0 18px rgba(10,20,30,0.08);
+  border-right:1px solid rgba(255,255,255,0.5);
+  z-index:1000;
+}
+
+/* botões da sidebar */
+nav.tabs .tab{
+  width:100%;
+  text-align:left;
+  background:transparent;
+  border:0;
+  padding:.65rem .6rem;
+  cursor:pointer;
+  border-radius:10px;
+  font-weight:600;
+  transition:.18s;
+}
+nav.tabs .tab:hover{
+  background:rgba(255,255,255,0.25);
+}
+/* Sidebar (nav.tabs) */
+nav.tabs{
+  position:fixed;
+  left:0;
+  top:0;
+  height:100vh;
+  width:var(--sidebar-w);
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  padding:1.5rem 0.75rem;
+  align-items:flex-start;
+
+  /* gradiente da sidebar (Playful) */
+  background: linear-gradient(135deg, #ffc8dd, #bde0fe) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 2px 0 18px rgba(10,20,30,0.08);
+  border-right:1px solid rgba(255,255,255,0.5);
+
+  /* GARANTE OS CLIQUES */
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+/*  (visível em mobile) */
+nav.tabs .hamb{ display:none; }
+
+/* -------------------------
+   Header inner (respeita deslocamento da sidebar)
+   ------------------------- */
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:64px;
+  padding-left:calc(var(--sidebar-w) + 1rem);
+}
+.brand{font-weight:700}
+
+/* -------------------------
+   Conteúdo principal (removido transform que causava deslocamento exagerado)
+   ------------------------- */
+main.container{
+  margin-left: calc(var(--sidebar-w) + 60px);
+  width: calc(100% - var(--sidebar-w) - 60px);
+  padding-top:24px;
+  padding-bottom:48px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+/* -------------------------
+   Seções / cards / grid
+   ------------------------- */
+.section{
+  width:100%;
+  max-width:1200px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+}
+.lead{ color:var(--muted); max-width:780px; text-align:left; }
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:1rem;
+  backdrop-filter: blur(4px);
+  box-shadow:0 6px 18px rgba(2,6,23,0.08);
+  width:100%;
+  max-width:920px;
+  margin:0 0 1rem 0;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 260px;
+  gap:16px;
+  width:100%;
+}
+.profile{text-align:left}
+
+/* cards do portfólio alinhados ao início */
+.cards-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  justify-content:flex-start;
+  align-items:flex-start;
+  width:100%;
+}
+
+.project.card{
+  flex:0 0 48%;
+  max-width:48%;
+  min-height:320px;
+  padding:1.25rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+/* justificar textos nas seções relevantes */
+#portfolio p, #sobre p {
+  text-align: justify;
+}
+
+/* -------------------------
+   Formulário
+   ------------------------- */
+.form-card{max-width:1200px}
+label{display:block; margin-top:.6rem; font-weight:700}
+input[type=text], input[type=email], textarea{
+  width:100%;
+  padding:.6rem .75rem;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.12);
+  background:rgba(255,255,255,0.85);
+  color:var(--fg);
+}
+textarea{min-height:220px; resize:vertical}
+.error{color:#b91c1c; font-size:.95rem; min-height:1.2rem}
+.status{margin-left:.5rem; color:var(--muted)}
+.form-row{display:flex; gap:.5rem; align-items:center; margin-top:.8rem}
+
+/* -------------------------
+   Botões
+   ------------------------- */
+.btn{
+  background:var(--accent);
+  color:white;
+  padding:.6rem .9rem;
+  border-radius:8px;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  font-weight:600;
+}
+.btn:hover{ filter:brightness(1.06); }
+.btn.disabled{ opacity:.6; pointer-events:none }
+
+/* -------------------------
+   Tab panels hidden by default
+   ------------------------- */
+.tab-panel{ display:none; }
+.tab-panel.active{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  width:100%;
+  gap:1.5rem;
+}
+
+/* -------------------------
+   Responsividade
+   ------------------------- */
+@media(max-width:880px){
+  nav.tabs{
+    position:relative;
+    width:100%;
+    height:auto;
+    flex-direction:row;
+    padding:.5rem;
+    gap:.5rem;
+  }
+  nav.tabs .hamb{ display:inline-block; }
+  main.container{
+    margin-left:0;
+    width:100%;
+    padding-top:0;
+    align-items:center;
+  }
+  .header-inner{ padding-left:0; }
+  .about-grid{ grid-template-columns:1fr; }
+  .project.card{ flex:0 0 100%; max-width:100%; min-height:auto; }
+}
+
+/* rodapé */
+.site-footer{ padding:1.25rem 0; text-align:center; color:var(--muted) }
