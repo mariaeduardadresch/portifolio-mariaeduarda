@@ -171,8 +171,9 @@ main.container{
   padding:1.25rem;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content: flex-start; /* força todo o conteúdo a começar no topo */
 }
+
 
 /* justificar textos nas seções relevantes */
 #portfolio p, #sobre p {
